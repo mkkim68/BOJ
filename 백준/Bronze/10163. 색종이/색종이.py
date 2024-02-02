@@ -1,26 +1,21 @@
 import sys
-
 input = sys.stdin.readline
 
 N = int(input())
+board = [[0] * 1001 for i in range(1001)]
 areas = []
-area = []
-ans = []
-for _ in range(N):
-    paper = set()
+for n in range(1, N+1):
     x, y, w, h = map(int, input().split())
     for i in range(x, x+w):
         for j in range(y, y+h):
-            paper.add((i, j))
-    areas.append(paper)
-    area.append(w * h)
+            board[i][j] = n
 
-intersection = set()
-for i in range(N-1, 0, -1):
-    ans.append(len(areas[i]))
-    intersection |= areas[i]
-    areas[i-1] -= intersection
+for n in range(1, N+1):
+    area = 0
+    for i in range(1001):
+        for j in range(1001):
+            if board[i][j] == n:
+                area += 1
+    areas.append(area)
 
-ans.append(len(areas[0]))
-ans = ans[::-1]
-print(*ans, sep='\n')
+print(*areas, sep='\n')
