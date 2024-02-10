@@ -12,4 +12,7 @@ ans = 0
 for s in range(len(string)):
     ans += alpha_dict[string[s]] * 31 ** s
 
+if ans // 1234567891 > 0:
+    ans %= 1234567891
+
 print(ans)
