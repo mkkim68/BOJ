@@ -10,7 +10,7 @@ def tree(currentNode, parent):
 
 
 N, R, Q = map(int, input().split())  # 정점의 수, 루트 번호, 쿼리 수
-edges = {i: [] for i in range(1, N+1)}
+edges = [[] for _ in range(N+1)]
 for _ in range(N-1):
     U, V = map(int, input().split())
     edges[U].append(V)
