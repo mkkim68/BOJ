@@ -1,5 +1,6 @@
 import sys
 input = sys.stdin.readline
+sys.setrecursionlimit(1000000000)
 
 V = int(input())
 edges = [[] for _ in range(V+1)]
