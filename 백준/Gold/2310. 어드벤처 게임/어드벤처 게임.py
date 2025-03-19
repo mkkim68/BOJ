@@ -25,6 +25,8 @@ while True:
     heappush(pq, (0, 1))
     while pq:
         money, now = heappop(pq)
+        if visited[now]:
+            continue
         visited[now] = 1
         for next in edges[now]:
             if visited[next]:
