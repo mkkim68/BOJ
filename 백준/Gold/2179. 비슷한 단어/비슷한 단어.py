@@ -26,9 +26,10 @@ def combi(idx, arr):
 
     for i in range(idx, N):
         if not visited[i]:
-            visited[i] = 1
-            combi(i+1, arr+[i])
-            visited[i] = 0
+            if len(arr) == 0 or (len(arr) == 1 and words[i][0] == words[arr[0]][0]):
+                visited[i] = 1
+                combi(i+1, arr+[i])
+                visited[i] = 0
 
 
 
