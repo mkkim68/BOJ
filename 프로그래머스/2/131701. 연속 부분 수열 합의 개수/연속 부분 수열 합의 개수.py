@@ -9,9 +9,9 @@ def solution(elements):
     for i in range(2*n):
         prefix_sum.append(prefix_sum[i]+elements[i])
     
-    for i in range(1, n+1):
-        for j in range(i, 2*n+1):
-            now = prefix_sum[j] - prefix_sum[j-i]
-            num_set.add(now)
+    for length in range(1, n):
+        for start in range(n):
+            subsum = prefix_sum[length+start] - prefix_sum[start]
+            num_set.add(subsum)
     
     return len(num_set)
